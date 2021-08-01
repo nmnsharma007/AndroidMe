@@ -16,27 +16,29 @@ public class AndroidMeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_android_me);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        BodyPartFragment headFragment = new BodyPartFragment();
-        BodyPartFragment bodyFragment = new BodyPartFragment();
-        BodyPartFragment legsFragment = new BodyPartFragment();
+        if(savedInstanceState == null){
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            BodyPartFragment headFragment = new BodyPartFragment();
+            BodyPartFragment bodyFragment = new BodyPartFragment();
+            BodyPartFragment legsFragment = new BodyPartFragment();
             headFragment.setImageIds(AndroidImageAssets.getHeads());
             bodyFragment.setImageIds(AndroidImageAssets.getBodies());
             legsFragment.setImageIds(AndroidImageAssets.getLegs());
             headFragment.setListIndex(1);
             bodyFragment.setListIndex(1);
             legsFragment.setListIndex(1);
-        fragmentManager.beginTransaction()
-                .setReorderingAllowed(true)
-                .add(R.id.fragment_head_view,headFragment)
-                .commit();
-        fragmentManager.beginTransaction()
-                .setReorderingAllowed(true)
-                .add(R.id.fragment_body_view,bodyFragment)
-                .commit();
-        fragmentManager.beginTransaction()
-                .setReorderingAllowed(true)
-                .add(R.id.fragment_legs_view,legsFragment)
-                .commit();
+            fragmentManager.beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.fragment_head_view,headFragment)
+                    .commit();
+            fragmentManager.beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.fragment_body_view,bodyFragment)
+                    .commit();
+            fragmentManager.beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.fragment_legs_view,legsFragment)
+                    .commit();
+        }
     }
 }
