@@ -80,5 +80,4 @@ public class MasterListAdapter extends BaseAdapter {
         imageView.setImageResource(mImageIds.get(position));
         return imageView;
     }
-
 }
